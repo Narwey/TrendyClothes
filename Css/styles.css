@@ -5,7 +5,7 @@
     text-decoration: none;
 }
 body{
-    overflow-x: none;
+    overflow-x: hidden;
 }
 .header{
     display: flex;
@@ -122,4 +122,27 @@ font-family:'Literata' ;
 .womenbtn{
   top: 50%;
   left: 60%;
+}
+
+.subscribe{
+    background-color:#D9D1C5 ;
+    display: flex;
+    justify-content: space-around;
+    padding: 3%;
+    height: 30px;
+    width: 100%;
+    font-family:'Literata';
+}
+.subscribe p{
+    color: #F6A01E;
+}
+
+.subscribe button{
+
+    width:100px;
+    height:40px;
+    color: white;
+    background-color:#F9B71B ;
+    border-color: #F9B71B;
+    cursor: pointer;
 }
