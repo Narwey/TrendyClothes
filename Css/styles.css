@@ -58,16 +58,41 @@ nav{
 }
 .intro{
     text-align: center;
-    margin: 5%;
+    
     
 }
 .intro h1{
+margin-top: 3%;
 font-family:'Literata' ;
-padding-bottom: 3%;
+
 
 }
 .intro p{
+    margin: 3%;
     font-family:'Montserrat';
+}
+.buttons{
+    margin-left: 40%;
+    margin-bottom: 4%;
+}
+
+.buttons button{
+    margin-left:5% ;
+    width:80px;
+    height:30px;
+    
+    cursor: pointer;
+}
+.shop{
+    color: white;
+    background-color:#F6A01E;
+    border-color: #F6A01E;
+    box-shadow: none;
+}
+.explore{
+    color: #F6A01E;
+    background-color:white ;
+    border-color: #F6A01E;
 }
 .images{
     display: inline-flex;
