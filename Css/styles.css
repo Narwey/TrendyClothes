@@ -130,7 +130,7 @@ font-family:'Literata' ;
     justify-content: space-around;
     padding: 3%;
     height: 30px;
-    width: 100%;
+    
     font-family:'Literata';
 }
 .subscribe p{
@@ -145,4 +145,33 @@ font-family:'Literata' ;
     background-color:#F9B71B ;
     border-color: #F9B71B;
     cursor: pointer;
+}
+.new_arrival{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2%;
+}
+.new_arrival h1{
+    font-family:'Literata';
+}
+.new_arrival p{
+    font-family:'Montserrat';
+    margin: 3%;
+}
+.new_arrival img{
+    width: 5%;
+}
+.dress{
+    display: flex;
+    position: relative;
+}
+.price_new{
+    position: absolute;
+    background-color: white;
+    width: 50%;
+    top: 50%;
+    left: 10%;
+}
+.image_new{
+    display: flex;
 }
