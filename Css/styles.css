@@ -19,12 +19,12 @@ body{
 }
 
 
-li{
+.nav_top li{
     list-style: none;
     display: inline-flex;
     margin-right: 100px;
 }
-li a{
+.nav_top li a{
     color: #323232;
 	font-family:'Montserrat';
 	position: relative;
@@ -32,7 +32,7 @@ li a{
 	text-transform: uppercase;
 	transition: 0.2s;
 }
-li a::after{
+.nav_top li a::after{
     content: "";
 	background-color: black;
 	position: absolute;
@@ -43,12 +43,12 @@ li a::after{
 	transition: 0.2s;
 }
 
-li a:hover{
+.nav_top li a:hover{
    
 	color: #F6A01E;
 
 }
-li a:hover::after{
+.nav_top li a:hover::after{
     background-color: #F6A01E;
     width: 100%;
 }
@@ -57,9 +57,7 @@ nav{
     margin-top: 1%;
 }
 .intro{
-    text-align: center;
-    
-    
+    text-align: center; 
 }
 .intro h1{
 margin-top: 3%;
@@ -105,6 +103,9 @@ font-family:'Literata' ;
 
     height:400px;
 }
+button{
+    border: none;
+}
 .images button{
     position: absolute;
     width:80px;
@@ -112,6 +113,7 @@ font-family:'Literata' ;
     color: #F6A01E;
     background-color:white ;
     border-color: #F6A01E;
+   
     cursor: pointer;
 }
 .menbtn{
@@ -158,20 +160,130 @@ font-family:'Literata' ;
     font-family:'Montserrat';
     margin: 3%;
 }
-.new_arrival img{
-    width: 5%;
+.image_new{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2px;
+  grid-auto-rows: minmax(100px, auto);
 }
+
 .dress{
-    display: flex;
+    grid-column: 1;
+    
     position: relative;
+}
+
+.twophoto{
+    grid-column: 2;
+    
+}
+.jean{
+    grid-column: 3;
 }
 .price_new{
     position: absolute;
-    background-color: white;
-    width: 50%;
-    top: 50%;
-    left: 10%;
+    display: grid;
+    grid-template-columns:repeat(3,1fr) ;
+    backdrop-filter: blur(20px);
+    width: 70%;
+    top: 60%;
+    left: 30%;
+    font-size: large;
+    color: white;
 }
-.image_new{
+.price_name{
     display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    font-size: x-large;
+}
+.det{
+    font-style: italic;
+}
+.button_new{
+    background-color: #F6A01E;
+    grid-column:3/4 ;
+    text-align: center;
+    padding: 10%;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+   
+}
+
+.TopProduct h1{
+    font-family:'Literata';
+}
+.TopProduct h3{
+    font-family:'Montserrat';
+    margin-top: 3%;
+    text-align: center;
+}
+.nav a{
+    text-decoration: none;
+    color: gray;
+    font-family:'Montserrat';
+    display: inline-flex;
+    margin-left: 3%;
+}
+.nav a:hover{
+    color: #F6A01E;
+    font-weight: bold;
+  }
+.nav a:focus{
+  color: #F6A01E;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+/* ---------------------Footer--------------------- */
+.footer_subscribe{
+    background: #D9D1C5;
+    padding: 5%;
+    text-align: center;
+}
+.container_subscribe{
+    font-family:'Literata' ;
+}
+.container_subscribe h1,h3,p{
+    padding: 1%;
+}
+.subscribe_Form{
+    background: white;
+    margin-left: 40%;
+    width: 22%;
+    height: 200%;
+}
+.subscribe_Form input{
+    font-family:'Montserrat';
+    border: none;
+}
+.subscribe_Form button{
+    font-family:'Montserrat';
+    width:80px;
+    height:30px;
+    color: white;
+    background-color:#F6A01E;
+    cursor: pointer;
+}
+
+.info_footer{
+    background-image: linear-gradient(#F99F19,#F8C20B);
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4,1fr) ;
+    font-family:'Montserrat';
+    line-height: 1.6;
+    padding: 3%;
+}
+
+.info_footer li{
+    display: flex;
+    
+}
+.info_footer li a{
+    color: white;
+    font-family:'Montserrat';  
 }
