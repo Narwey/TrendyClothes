@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!----------Using Font---------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +25,8 @@
     <nav>
         <ul class="nav_top">
             <li><a href="">Home</a></li>
-            <li><a href="">Men</a></li>
-            <li><a href="">Women</a></li>
+            <li><a href="product_list.php" >Men</a></li>
+            <li><a href="product_list.php">Women</a></li>
             <li><a href="">Contact</a></li>
         </ul>
     </nav>
@@ -43,7 +44,8 @@
     </div>
     
     <div class="cart">
-        <img src="image/shopping_bag_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        <!-- <img src="image/shopping_bag_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""> -->
+        <i class="fa badge" style="font-size:24px" value="product_calcul()">&#xf07a;</i>
     </div>
   </div>
  </div> 
@@ -83,8 +85,16 @@
             <option value="Men">Men</option>
             <option value="Women">Women</option>
         </select>
+        <label for="preference">Preferences</label>
+        <select id="Preferences" name="pref">
+            <option value="Pants">Pants</option>
+            <option value="Dress">Dress</option>
+            <option value="Top">Top</option>
+            <option value="shoes">Shoes</option>
+            <option value="all">All</option>
+        </select>
         <div class="buttons">
-            <input type="submit" name="submit" value="Submit">
+            <input type="button" name="submit" value="Submit">
             <input type="button" value="Cancel" onclick="closePopup('registerPopup')">
         </div>
     </form>

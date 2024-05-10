@@ -1,6 +1,7 @@
 id_product,product_name,Category,Color,Size,Price,image
-1,Top,Women,multicolour,38|40|42,$35.00,https://media.maxfashion.com/i/max/B22WCLFSPR102GREENMULTISH-B22WCLFSPR102-MXSS2212242_02-2100.jpg?$prodimg-d-prt-pdp-2x$&$quality-retina$&fmt=auto&sm=c 
-2,Top,Women,gray|pink,38|40|42,	$88.00, https://media.maxfashion.com/i/max/B24WCTFSWT131GREYLIGHT-B24WCTFSWT131-MXSS24111723_01-2100.jpg | https://media.maxfashion.com/i/max/B24WCTFSWT131PINKLIGHT-B24WCTFSWT131-MXSS24111723_02-2100.jpg 
-3,Top,Women,pink,38|40|42,100.00$,https://media.maxfashion.com/i/max/B24WCTFSWT126PINKMEDIUM-B24WCTFSWT126-MXSPR24271123_01-2100.jpg?$prodimg-d-prt-pdp-2x$&$quality-retina$&fmt=auto&sm=c | https://media.maxfashion.com/i/max/B24WCTFSWT126CREAMLIGHT-B24WCTFSWT126-MXSPR24271123_01-2100.jpg?$prodimg-d-prt-pdp-2x$&$quality-retina$&fmt=auto&sm=c
-4,shoes,Men,multicolor,40,$25.00,.\image\spadrille_newarrival.svg
-5,Pants,Men,blue,44,$50.00,.\image\jeans_newarrival.svg
+1,Top,Women,multicolour,38|40|42,35.00,https://media.maxfashion.com/i/max/B22WCLFSPR102GREENMULTISH-B22WCLFSPR102-MXSS2212242_02-2100.jpg?$prodimg-d-prt-pdp-2x$&$quality-retina$&fmt=auto&sm=c 
+2,Top,Women,gray|pink,38|40|42,	88.00, https://media.maxfashion.com/i/max/B24WCTFSWT131GREYLIGHT-B24WCTFSWT131-MXSS24111723_01-2100.jpg | https://media.maxfashion.com/i/max/B24WCTFSWT131PINKLIGHT-B24WCTFSWT131-MXSS24111723_02-2100.jpg 
+3,Top,Women,pink,38|40|42,100.00,https://media.maxfashion.com/i/max/B24WCTFSWT126PINKMEDIUM-B24WCTFSWT126-MXSPR24271123_01-2100.jpg?$prodimg-d-prt-pdp-2x$&$quality-retina$&fmt=auto&sm=c | https://media.maxfashion.com/i/max/B24WCTFSWT126CREAMLIGHT-B24WCTFSWT126-MXSPR24271123_01-2100.jpg?$prodimg-d-prt-pdp-2x$&$quality-retina$&fmt=auto&sm=c
+4,shoes,Men,multicolor,40,25.00,.\image\spadrille_newarrival.svg
+5,Pants,Men,blue,44,50.00,.\image\jeans_newarrival.svg
+6,Dress,Women,pink,38,120.00,.\image\photo1_newarrival.svg

@@ -49,8 +49,3 @@ function closePopup(popupId) {
     var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
     xhr.send(data);
 }
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    // Your code here
-    return false; // Ensure to return false to prevent further propagation
-});

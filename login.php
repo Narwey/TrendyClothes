@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Check if the form is submitted
 if(isset($_POST["username"]) && isset($_POST["password"])) {
     // Get the submitted username and password
