@@ -25,11 +25,7 @@ function closePopup(popupId) {
 }
 
 // ---login
-// var loginButton = document.getElementById("loginButton");
-// if (loginButton) {
-//     loginButton.innerText = username;
-// }
-// document.addEventListener("DOMContentLoaded", function() {
+
   function loginUser() {
     var username = document.querySelector("#LoginPopup input[name='username']").value;
     var password = document.querySelector("#LoginPopup input[name='password']").value;
@@ -40,16 +36,21 @@ function closePopup(popupId) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = xhr.responseText;
             if (response === "success") {
-                // Change the login button text to the user's name
+                
                 document.getElementById("loginButton").innerText = username;
-                // Hide the login popup
+                
                 document.getElementById("LoginPopup").style.display = "none";
+                document.getElementById("logoutButton").style.display = "block";
             } else {
-                alert("Invalid credentials!");
+                alert("Please enter valid account!");
             }
         }
     };
     var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
     xhr.send(data);
 }
-// });
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    // Your code here
+    return false; // Ensure to return false to prevent further propagation
+});

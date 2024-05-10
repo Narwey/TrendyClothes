@@ -57,6 +57,15 @@ nav{
     margin-top: 1%;
 }
 /* --------------------------------Login pop------------------------------ */
+#logoutButton{
+    display: none;
+    font-family:'Montserrat';
+    cursor: pointer;
+}
+#loginButton{
+    font-family:'Montserrat';
+    cursor: pointer;
+}
  /* -----login style------------ */
  #SignPopup{
     display: none;
