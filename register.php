@@ -49,22 +49,25 @@ if(isset($_POST["submit"]))
     {
         $password = clean_text($_POST["password"]);
     }
-    if(empty($_POST["gender"]))
-    {
-        $error .= '<p><label class="text-error">gender is required to show products suits to you</label></p>';
-    }
-    else
-    {
-        $gender = clean_text($_POST["pref"]);
-    }
-    if(empty($_POST["pref"]))
-    {
-        $error .= '<p><label class="text-error">preference is required to show products suits to you by default</label></p>';
-    }
-    else
-    {
-        $gender = clean_text($_POST["pref"]);
-    }
+    
+if(empty($_POST["gender"]))
+{
+    $error .= '<p><label class="text-error">gender is required to show products suits to you</label></p>';
+}
+else
+{
+    $gender = clean_text($_POST["gender"]);
+}
+
+if(empty($_POST["pref"]))
+{
+    $error .= '<p><label class="text-error">preference is required to show products suits to you by default</label></p>';
+}
+else
+{
+    $preference = clean_text($_POST["pref"]);
+}
+
     if($error == '')
     {
         $file_open = fopen("data.csv", "a"); 
@@ -79,7 +82,7 @@ if(isset($_POST["submit"]))
             'email'  => $email,
             'password' => $password,
             'gender' => $gender,
-            'pref' => $preference
+            'pref' => $preference 
         );
         fputcsv($file_open, $form_data);
         $error = '<label class="text-success">welcome to your online shop TrendyClothes</label>';

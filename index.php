@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +48,7 @@
     
     <div class="cart">
         <!-- <img src="image/shopping_bag_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""> -->
-        <i class="fa badge" style="font-size:24px" value="product_calcul()">&#xf07a;</i>
+        <i id="cartIcon" class="fa badge" style="font-size:24px">&#xf07a; <?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0; ?></i>
     </div>
   </div>
  </div> 
@@ -81,7 +84,7 @@
         <label for="pwd">Password:</label>
         <input type="password" id="pwd" name="password">
         <label for="gender">Gender</label>
-        <select id="Gender" name="gender">
+        <select id="gender" name="gender">
             <option value="Men">Men</option>
             <option value="Women">Women</option>
         </select>
@@ -94,7 +97,7 @@
             <option value="all">All</option>
         </select>
         <div class="buttons">
-            <input type="button" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
             <input type="button" value="Cancel" onclick="closePopup('registerPopup')">
         </div>
     </form>

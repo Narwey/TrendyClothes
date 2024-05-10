@@ -25,8 +25,7 @@ function closePopup(popupId) {
 }
 
 // ---login
-
-  function loginUser() {
+function loginUser() {
     var username = document.querySelector("#LoginPopup input[name='username']").value;
     var password = document.querySelector("#LoginPopup input[name='password']").value;
     var xhr = new XMLHttpRequest();
@@ -35,17 +34,18 @@ function closePopup(popupId) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = xhr.responseText;
-            if (response === "success") {
-                
+            if (response.trim() === "success") {
+                // Update login button text
                 document.getElementById("loginButton").innerText = username;
-                
+                // Hide login popup and show logout button
                 document.getElementById("LoginPopup").style.display = "none";
                 document.getElementById("logoutButton").style.display = "block";
             } else {
-                alert("Please enter valid account!");
+                alert("Please enter a valid account!");
             }
         }
     };
     var data = "username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
     xhr.send(data);
 }
+

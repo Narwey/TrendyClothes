@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +49,7 @@
     
     <div class="cart">
         <!-- <img src="image/shopping_bag_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""> -->
-        <i class="fa badge" style="font-size:24px" value="product_calcul()">&#xf07a;</i>
+        <i id="cartIcon" class="fa badge" style="font-size:24px">&#xf07a; <?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0; ?></i>
     </div>
   </div>
  </div> 
@@ -122,10 +126,10 @@ if ($file === false) {
             $images = explode("|", $row[6]); // Split images by |
             if (!empty($images[0])) { // Check if there is at least one image
                 if (filter_var($images[0], FILTER_VALIDATE_URL)) {
-                    // Display first image from URL with fixed width and height
+                    
                     echo "<img class='product-image' src='" . htmlspecialchars($images[0]) . "' alt='Product Image'>";
                 } else {
-                    // Display first image from relative path with fixed width and height
+                    
                     echo "<img class='product-image' src='" . htmlspecialchars($images[0]) . "' alt='Product Image'>";
                 }
             }
@@ -133,10 +137,12 @@ if ($file === false) {
             echo "<p style='text-align: center;'><strong>" . $row[3] . "</strong></p>";
             // echo "<div class='stars'>";
             // echo "</div>";
-            echo "<p style='text-align: center;'><strong>$" . $row[5] . "</strong></p>"; // Note: corrected index
+            echo "<p style='text-align: center;'><strong>$" . $row[5] . "</strong></p>"; 
+            echo "<form action='shopping.php' method='post'>";
             echo "<div class='btn-div'>";
-            echo "<button>Order Now -></button>";
+            echo "<button class='order-btn' name='order_button'>Order Now -></button>";
             echo "</div>";
+            echo "</form>";
             echo "</div>";
         }
     }

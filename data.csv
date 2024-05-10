@@ -1,2 +1,3 @@
-id,name_user,email,password,gender
-1,kenza,kenza@gmail.com,simplon,Dress,
+id,name_user,email,password,gender,preference
+1,anouar,anouar@gmail.com,simplon,Men,Pants
+2,kenza,kenza@gmail.com,simplon,Women,Dress
