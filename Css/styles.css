@@ -56,6 +56,132 @@ nav{
     justify-content: center;
     margin-top: 1%;
 }
+/* --------------------------------Login pop------------------------------ */
+ /* -----login style------------ */
+ #SignPopup{
+    display: none;
+    /* display: fixed; */
+    margin: 5%;
+    padding: 2%;
+    background-image: linear-gradient(#F99F19,#F8C20B);
+    width: 25%;
+    text-align: center;
+    font-family:'Montserrat';
+ }
+
+ #SignPopup button{
+    width: 80px;
+    height: 40px;
+    margin-top: 5%;
+    color: #F6A01E;
+    font-weight: bold;
+    font-style: italic;
+    font-family:'Montserrat';
+ }
+ #SignPopup button:hover{
+    background-color: #F6A01E;
+    color: white;
+ }
+#LoginPopup{
+    display: none; 
+    /* display: flex; */
+    margin: 5%;
+    padding: 2%;
+    background-image: linear-gradient(#F99F19,#F8C20B);
+    width: 25%;
+    text-align: center;
+    font-family:'Montserrat';
+}
+
+/* -----Register----- */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* vertical scrolling  overflows */
+    border-radius: 10px; 
+}
+
+/* Style for the background blur */
+body.blur {
+    overflow: hidden; 
+}
+
+body.blur::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /*  opacity  */
+    backdrop-filter: blur(5px); /
+    z-index: 999999999999;
+}
+.popup input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .popup input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.popup input[type=submit] {
+    width: 100%;
+    background-color: #6B8E23;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+  }
+  .popup input[type=button] {
+    width: 100%;
+    background-color: #F6A01E;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .popup input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  .popup input[type=button]:hover {
+    background-color: red;
+  }
+  
+  /* .popup {
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  } */
+
+/* ---------------------------------Hero Section--------------------------------- */
 .intro{
     text-align: center; 
 }
