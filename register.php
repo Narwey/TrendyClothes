@@ -93,5 +93,5 @@ else
         $preference='';
     }
 }
-
+header("Location: index.php");
 ?>

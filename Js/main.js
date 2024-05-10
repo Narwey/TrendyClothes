@@ -49,3 +49,23 @@ function loginUser() {
     xhr.send(data);
 }
 
+
+function filterProducts(category) {
+    // Set the category to the PHP variable
+    window.location.href = 'product_list.php?category=' + category;
+}
+
+
+function searchProducts(query) {
+    query = query.toLowerCase().trim();
+    let products = document.querySelectorAll('.children-division');
+    products.forEach(product => {
+        let productName = product.querySelector('p').innerText.toLowerCase();
+        if (productName.includes(query)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+

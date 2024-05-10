@@ -1,3 +1,5 @@
 id,name_user,email,password,gender,preference
 1,anouar,anouar@gmail.com,simplon,Men,Pants
 2,kenza,kenza@gmail.com,simplon,Women,Dress
+3,nicko,nicko@gmail.com,simplon,Men,Top
+4,anouar,testemail@gmail.com,1212,Men,shoes

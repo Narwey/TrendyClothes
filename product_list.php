@@ -28,7 +28,7 @@ session_start();
     </div>
     <nav>
         <ul class="nav_top">
-            <li><a href="">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="product_list.php" >Men</a></li>
             <li><a href="product_list.php">Women</a></li>
             <li><a href="">Contact</a></li>
@@ -36,15 +36,10 @@ session_start();
     </nav>
 
   <div class="icon_head">
-    <div class="search">
-        <img src="image/search_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-    </div>
 
-    <div class="login">
-        <img src="image/account_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-        <button id="loginButton" onclick="openLoginPopup()">Login</button>
-        <button id="logoutButton" href="logout.php">Logout</button>
-
+    <div class="login">   
+        <button id="loginButton" onclick="openLoginPopup()"><img src="image/account_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="loginPage"></button>
+        <a id="logoutButton" href="logout.php">Logout</a>
     </div>
     
     <div class="cart">
@@ -98,11 +93,22 @@ session_start();
             <option value="all">All</option>
         </select>
         <div class="buttons">
-            <input type="button" name="submit" value="Submit">
+            <input type="submit" name="submit" value="submit">
             <input type="button" value="Cancel" onclick="closePopup('registerPopup')">
         </div>
     </form>
 </div>
+        <div class="gender">
+            <!-- Make the categories clickable buttons -->
+            <button class="btn-gnd" onclick="filterProducts('All')">All products</button>
+            <button class="btn-gnd" onclick="filterProducts('Men')">Men</button>
+            <button class="btn-gnd" onclick="filterProducts('Women')">Women</button>
+        </div>
+        <div class="search_div">
+            <img src="image/search_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+            <input class="search_input" type="text" placeholder="Search" oninput="searchProducts(this.value)">
+        </div>
+        
 <div class="productList">
 <?php
 $category = isset($_GET['category']) ? $_GET['category'] : 'All';
@@ -118,8 +124,8 @@ if ($file === false) {
             $test = false;
             continue;
         }
-        if ($category === 'All' || strtolower($row[1]) === strtolower($category)) {
-            echo "<div class='children-division " . strtolower($row[1]) . "'>";
+        if ($category === 'All' || strtolower($row[2]) === strtolower($category)) {
+            echo "<div class='children-division '>";
             echo "<div class='cloths'>";
             
             // Check if the image is an URL or a relative path
@@ -149,10 +155,6 @@ if ($file === false) {
     fclose($file);
 }
 ?>
-
-
-
-</div>
-    
+</div>   
 </body>
 </html>
