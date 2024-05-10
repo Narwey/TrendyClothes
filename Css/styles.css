@@ -144,7 +144,7 @@ body.blur::before {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /*  opacity  */
     backdrop-filter: blur(5px); /
-    z-index: 999999999999;
+    z-index: 9999;
 }
 .popup input[type=text], select {
     width: 100%;
@@ -476,3 +476,14 @@ button{
 .cloths{
     margin: 20%;
 }
+
+
+/* -----------cart page---------- */
+.cart tr{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    
+/* .cart h1{
+    grid-row: 1;
+    grid-column: 1/5;
+} */

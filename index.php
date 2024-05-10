@@ -46,10 +46,13 @@ session_start();
 
     </div>
     
-    <div class="cart">
-        <!-- <img src="image/shopping_bag_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt=""> -->
+    
+        <div class="cart">
+    <a href="cart.php">
         <i id="cartIcon" class="fa badge" style="font-size:24px">&#xf07a; <?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0; ?></i>
-    </div>
+    </a>
+</div>
+   
   </div>
  </div> 
  <!-- Login Popup -->
@@ -109,7 +112,7 @@ session_start();
         <p>Fashion plays an important role in people's lives. 
             The way people dress expresses their individuality 
             and personality, and can influence how others 
-            perceive them, trendyClothes help you to blow them away. </p>
+            perceive them, trendyClothes help you to blow them away. </p>
     </div>
     <div class="buttons">
         <button class="shop">Shop Now</button>

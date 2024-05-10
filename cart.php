@@ -1,5 +1,7 @@
-<?php
-session_start();
+<?php include 'addToCart.php'; 
+$products = []; // Assuming you will populate this array with product data
+$products_in_cart = []; // Assuming you will populate this array with cart data
+$subtotal = 0;
 ?>
 
 <!DOCTYPE html>
@@ -8,21 +10,13 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!----------Using Font---------->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!----------CSS file---------->
     <link rel="stylesheet" href="Css/styles.css">
-    <!-----------JS file------------->
     <script src="Js/main.js"></script> 
-    <title>TrendyClothes Online_Shop</title>
+    <title>Shopping Cart</title>
 </head>
-
 <body>
 
- <div class="header">
+<div class="header">
     <div class="logo">
         <img src="image/Trendy Clothes.svg" alt="">
     </div>
@@ -47,11 +41,13 @@ session_start();
 
     </div>
     
-    <div class="cart">
+    
+        <div class="cart">
     <a href="cart.php">
         <i id="cartIcon" class="fa badge" style="font-size:24px">&#xf07a; <?php echo isset($_SESSION['cart_count']) ? $_SESSION['cart_count'] : 0; ?></i>
     </a>
 </div>
+   
   </div>
  </div> 
  <!-- Login Popup -->
@@ -86,7 +82,7 @@ session_start();
         <label for="pwd">Password:</label>
         <input type="password" id="pwd" name="password">
         <label for="gender">Gender</label>
-        <select id="Gender" name="gender">
+        <select id="gender" name="gender">
             <option value="Men">Men</option>
             <option value="Women">Women</option>
         </select>
@@ -99,62 +95,68 @@ session_start();
             <option value="all">All</option>
         </select>
         <div class="buttons">
-            <input type="button" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
             <input type="button" value="Cancel" onclick="closePopup('registerPopup')">
         </div>
     </form>
 </div>
-<div class="productList">
-<?php
-$category = isset($_GET['category']) ? $_GET['category'] : 'All';
-$filePath = 'products.csv';
-$file = fopen($filePath, 'r');
-$test = true;
 
-if ($file === false) {
-    echo "Failed to open file: $filePath";
-} else {
-    while (($row = fgetcsv($file)) !== false) {
-        if ($test) {
-            $test = false;
-            continue;
-        }
-        if ($category === 'All' || strtolower($row[1]) === strtolower($category)) {
-            echo "<div class='children-division " . strtolower($row[1]) . "'>";
-            echo "<div class='cloths'>";
-            
-            // Check if the image is an URL or a relative path
-            $images = explode("|", $row[6]); // Split images by |
-            if (!empty($images[0])) { // Check if there is at least one image
-                if (filter_var($images[0], FILTER_VALIDATE_URL)) {
-                    
-                    echo "<img class='product-image' src='" . htmlspecialchars($images[0]) . "' alt='Product Image'>";
-                } else {
-                    
-                    echo "<img class='product-image' src='" . htmlspecialchars($images[0]) . "' alt='Product Image'>";
-                }
-            }
-            echo "</div>";
-            echo "<p style='text-align: center;'><strong>" . $row[3] . "</strong></p>";
-            // echo "<div class='stars'>";
-            // echo "</div>";
-            echo "<p style='text-align: center;'><strong>$" . $row[5] . "</strong></p>"; 
-            echo "<form action='addTocart.php' method='post'>";
-            echo "<input type='hidden' name='productId' value='1'>";
-            echo "<div class='btn-div'>";
-            echo "<button type='submit' name='addToCart'>Order Now</button>";
-            echo "</div>";
-            echo "</form>";
-            echo "</div>";
-        }
-    }
-    fclose($file);
-}
-?>
-
-
-
+<div class="product_cart">
+<div class="cart">
+    <h1>Shopping Cart</h1>
+   <form action="cart_update.php" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="2">Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (empty($products)): ?>
+                <tr>
+                    <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
+                </tr>
+                <?php else: ?>
+                <?php foreach ($products as $product): ?>
+                <tr>
+                    <td class="img">
+                        <a href="index.php?page=product&id=<?=$product['id']?>">
+                        <img src="image_directory/<?=$product['image']?>" width="50" height="50" alt="<?=$product['product_name']?>">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="index.php?page=product&id=<?=$product['id']?>"><?=$product['product_name']?></a>
+                        <br>
+                        <a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a>
+                    </td>
+                    <td class="price">&dollar;<?=$product['Price']?></td>
+                    <td class="quantity">
+                        <input type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
+                    </td>
+                    <td class="price">&dollar;<?=$product['Price'] * $products_in_cart[$product['id']]?></td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <div class="subtotal">
+            <span class="text">Subtotal</span>
+            <span class="price">&dollar;<?=$subtotal?></span>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="Update" name="update">
+            <input type="submit" value="Place Order" name="placeorder">
+        </div>
+    </form>
 </div>
-    
+</div>
+
+
+
+
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-sessio
+
 if(isset($_POST["username"]) && isset($_POST["password"])) {
     // Get the submitted username and password
     $submitted_username = $_POST["username"];
