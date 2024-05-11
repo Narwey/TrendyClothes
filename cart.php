@@ -22,7 +22,7 @@ $subtotal = 0;
     </div>
     <nav>
         <ul class="nav_top">
-            <li><a href="">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="product_list.php" >Men</a></li>
             <li><a href="product_list.php">Women</a></li>
             <li><a href="">Contact</a></li>
@@ -148,7 +148,7 @@ $subtotal = 0;
         </div>
         <div class="buttons">
             <input type="submit" value="Update" name="update">
-            <input type="submit" value="Place Order" name="placeorder">
+            <input type="submit" value="Place Order" name="placehorder">
         </div>
     </form>
 </div>

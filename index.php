@@ -39,11 +39,9 @@ session_start();
         <img src="image/search_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
     </div>
 
-    <div class="login">
-        <img src="image/account_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-        <button id="loginButton" onclick="openLoginPopup()">Login</button>
-        <button id="logoutButton" href="logout.php">Logout</button>
-
+    <div class="login">   
+        <button id="loginButton" onclick="openLoginPopup()"><img src="image/account_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="loginPage"></button>
+        <a id="logoutButton" href="logout.php">Logout</a>
     </div>
     
     

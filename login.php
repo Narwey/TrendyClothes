@@ -13,18 +13,19 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
         // Check if the username and password match
         if ($data[1] == $submitted_username && $data[3] == $submitted_password) {
             // Set a cookie to indicate user is logged in
-            setcookie('user_id', $data[0], [
-                'expires' => time() + (86400 * 30),
-                'path' => '/',
-                'sameSite' => 'Strict'
-            ]);
+            // setcookie('user_id', $data[0], [
+            //     'expires' => time() + (86400 * 30),
+            //     'path' => '/',
+            //     'sameSite' => 'Strict'
+            // ]);
             
-            setcookie('username', $submitted_username, [
-                'expires' => time() + (86400 * 30),
-                'path' => '/',
-                'sameSite' => 'Strict'
-            ]);
-            
+            // setcookie('username', $submitted_username, [
+            //     'expires' => time() + (86400 * 30),
+            //     'path' => '/',
+            //     'sameSite' => 'Strict'
+            // ]);
+            $_SESSION["user_id"] = $data[0];
+            $_SESSION["username"] = $submitted_username;
             echo "success";
             exit();
         }

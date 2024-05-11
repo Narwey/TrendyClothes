@@ -40,11 +40,9 @@ session_start();
         <img src="image/search_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
     </div>
 
-    <div class="login">
-        <img src="image/account_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-        <button id="loginButton" onclick="openLoginPopup()">Login</button>
-        <button id="logoutButton" href="logout.php">Logout</button>
-
+    <div class="login">   
+        <button id="loginButton" onclick="openLoginPopup()"><img src="image/account_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="loginPage"></button>
+        <a id="logoutButton" href="logout.php">Logout</a>
     </div>
     
     <div class="cart">
@@ -104,6 +102,16 @@ session_start();
         </div>
     </form>
 </div>
+<div class="gender">
+            <!-- Make the categories clickable buttons -->
+            <button class="btn-gnd" onclick="filterProducts('All')">All products</button>
+            <button class="btn-gnd" onclick="filterProducts('Men')">Men</button>
+            <button class="btn-gnd" onclick="filterProducts('Women')">Women</button>
+        </div>
+        <div class="search_div">
+            <img src="image/search_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+            <input class="search_input" type="text" placeholder="Search" oninput="searchProducts(this.value)">
+        </div>
 <div class="productList">
 <?php
 $category = isset($_GET['category']) ? $_GET['category'] : 'All';
@@ -119,8 +127,8 @@ if ($file === false) {
             $test = false;
             continue;
         }
-        if ($category === 'All' || strtolower($row[1]) === strtolower($category)) {
-            echo "<div class='children-division " . strtolower($row[1]) . "'>";
+        if ($category === 'All' || strtolower($row[2]) === strtolower($category)) {
+            echo "<div class='children-division'>";
             echo "<div class='cloths'>";
             
             // Check if the image is an URL or a relative path
@@ -139,10 +147,10 @@ if ($file === false) {
             // echo "<div class='stars'>";
             // echo "</div>";
             echo "<p style='text-align: center;'><strong>$" . $row[5] . "</strong></p>"; 
-            echo "<form action='addTocart.php' method='post'>";
-            echo "<input type='hidden' name='productId' value='1'>";
+            echo "<form action='AddTocart.php' method='post'>";
+            echo "<input type='hidden' name='productId' value='<?php echo $row[0]; ?>'>";
             echo "<div class='btn-div'>";
-            echo "<button type='submit' name='addToCart'>Order Now</button>";
+            echo "<button type='submit'>Order Now</button>";
             echo "</div>";
             echo "</form>";
             echo "</div>";

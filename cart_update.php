@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
     // Redirect back to the cart page
     header("Location: cart.php");
     exit();
-} elseif (isset($_POST['placeorder'])) {
+} elseif (isset($_POST['placehorder'])) {
     // Handle place order logic
     // Add your code to process the order, e.g., save order details to a database
     // After processing, you can clear the cart session or perform any other necessary actions

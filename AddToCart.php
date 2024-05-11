@@ -17,7 +17,7 @@ function readCSV($file){
 $products = readCSV('products.csv');
 
 // Check if products exist and if addToCart button is clicked
-if (!empty($products) && isset($_POST['addToCart'])) {
+if (!empty($products) && isset($_POST['productId'])) {
     // Get the product ID from the form and sanitize it
     $productId = filter_var($_POST['productId'], FILTER_SANITIZE_NUMBER_INT);
     
