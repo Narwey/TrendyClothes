@@ -147,10 +147,16 @@ if ($file === false) {
             // echo "<div class='stars'>";
             // echo "</div>";
             echo "<p style='text-align: center;'><strong>$" . $row[5] . "</strong></p>"; 
-            echo "<form action='AddTocart.php' method='post'>";
-            echo "<input type='hidden' name='productId' value='<?php echo $row[0]; ?>'>";
+            echo "<form action='cart_update.php' method='post'>";
+            echo "<input type='hidden' name='productId' value='" . $row[0] . "'>";
+            echo "<label for='quantity'>Quantity:</label>";
+            echo "<select name='quantity' id='quantity'>";
+            for ($i = 1; $i <= 10; $i++) {
+                echo "<option value='" . $i . "'>" . $i . "</option>";
+            }
+            echo "</select>";
             echo "<div class='btn-div'>";
-            echo "<button type='submit'>Order Now</button>";
+            echo "<button type='submit' name='addToCart'>Add to Cart</button>";
             echo "</div>";
             echo "</form>";
             echo "</div>";

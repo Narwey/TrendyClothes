@@ -503,13 +503,24 @@ button{
     gap: 10px;
 }
 
-/* -----------cart page---------- */
-.cart tr{
+
+.user-preference-section{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
+    /* margin: 3%; */
     
-/* .cart h1{
-    grid-row: 1;
-    grid-column: 1/5;
-} */
+
+    
 }
+/* -----------cart page---------- */
+
+.CartList{
+    /* width: 100%; */
+    margin: 5%;
+}
+.CartList th, td {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 8px; /* Add padding for better readability */
+    width: 100%;
+  }

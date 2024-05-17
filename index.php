@@ -69,7 +69,7 @@ session_start();
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
           
-        <input type="button" name="submit_log" value="Submit" onclick="loginUser()"></button>
+        <input type="button" name="submit_log" value="Login" onclick="loginUser()"></button>
         <input type="button" value="Cancel" onclick="document.getElementById('LoginPopup').style.display='none'" ></input>
         <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
     </form>
@@ -113,7 +113,7 @@ session_start();
             perceive them, trendyClothes help you to blow them away. </p>
     </div>
     <div class="buttons">
-        <button class="shop">Shop Now</button>
+        <button onclick="filterProducts('All')" class="shop">Shop Now</button>
         <button class="explore">Explore</button>
     </div>
     <div class="images">
@@ -155,9 +155,11 @@ session_start();
                   </div>
                </div>
                <div class="button_new">
+                <button onclick="filterProducts('All')">
                 <span class="material-symbols-outlined">
                     arrow_right_alt
                     </span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -178,35 +180,72 @@ session_start();
         <h1>Top Products</h1>
     </div>
     <div class="nav">
-        <a href="">All products</a>
-        <a href="">Men</a>
-        <a href="">Women</a>
+    <a class="btn-gnd" onclick="filterProducts('All')">All products</a>
+    <a class="btn-gnd" onclick="filterProducts('Men')">Men</a>
+    <a class="btn-gnd" onclick="filterProducts('Women')">Women</a>
     </div>
-    <!-- <div class="Top_product">
-        <div class="product1">
-            <img src="" alt="">
-            <div class="name">
-                <h4></h4>
-            </div>
-            <div class="review">
-                <h4></h4>
-            </div>
-            <div class="price">
-                <h4></h4>
-            </div>
-            <div class="colors">
-                <h4></h4>
-            </div>
-            <div class="order">
-                <button>Order now</button>
-                <span class="material-symbols-outlined">
-                    arrow_right_alt
-                    </span>
-            </div>
-        </div>
-    </div> -->
-</div>
+    <div class="Top_product">
+    
+    <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Démarre une session si aucune session n'est déjà active
+}
 
+// Vérifie si la session est active et si la préférence de l'utilisateur est définie
+if(isset($_SESSION["preference"])) {
+    // Récupère la préférence de l'utilisateur
+    $user_preference = $_SESSION["preference"];
+
+    // Lit les produits à partir du fichier CSV
+    $products = array_map('str_getcsv', file('products.csv'));
+
+    // Affiche les produits en fonction de la préférence de l'utilisateur
+    echo "<div class='user-preference-section'>";
+    echo "<h2>Produits pour " . $user_preference . "</h2>";
+    echo "<div class='products'>";
+    foreach ($products as $product) {
+        // Vérifie si le produit correspond à la préférence de l'utilisateur
+        if ($product[1] == $user_preference) { 
+            // Affiche les informations sur le produit
+            echo "<div class='children-division'>";
+            echo "<div class='cloths'>";
+            // Vérifie si l'image est une URL ou un chemin relatif
+            $images = explode("|", $product[6]); // Split les images par |
+            if (!empty($images[0])) { // Vérifie s'il y a au moins une image
+                if (filter_var($images[0], FILTER_VALIDATE_URL)) {
+                    echo "<img class='product-image' src='" . htmlspecialchars($images[0]) . "' alt='Product Image'>";
+                } else {
+                    echo "<img class='product-image' src='" . htmlspecialchars($images[0]) . "' alt='Product Image'>";
+                }
+            }
+            echo "</div>";
+            echo "<p style='text-align: center;'><strong>" . $product[1] . "</strong></p>";
+            echo "<p style='text-align: center;'><strong>$" . $product[5] . "</strong></p>"; 
+            echo "<form action='cart_update.php' method='post'>";
+            echo "<input type='hidden' name='productId' value='" . $product[0] . "'>";
+            echo "<label for='quantity'>Quantity:</label>";
+            echo "<select name='quantity' id='quantity'>";
+            for ($i = 1; $i <= 10; $i++) {
+                echo "<option value='" . $i . "'>" . $i . "</option>";
+            }
+            echo "</select>";
+            echo "<div class='btn-div'>";
+            echo "<button type='submit' name='addToCart'>Add to Cart</button>";
+            echo "</div>";
+            echo "</form>";
+            echo "</div>";
+        }
+    }
+    echo "</div>";
+    echo "</div>";
+} else {
+    // Gère le cas où la préférence n'est pas définie
+    echo "<p>Veuillez vous connecter pour voir les produits.</p>";
+}
+?>
+
+</div>
+</div> 
 
 </main>
 

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(isset($_POST["username"]) && isset($_POST["password"])) {
     // Get the submitted username and password
     $submitted_username = $_POST["username"];
@@ -26,6 +26,9 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
             // ]);
             $_SESSION["user_id"] = $data[0];
             $_SESSION["username"] = $submitted_username;
+            $_SESSION["preference"] = $data[5]; // Preference column
+            
+
             echo "success";
             exit();
         }
