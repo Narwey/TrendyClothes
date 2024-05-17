@@ -27,9 +27,10 @@ session_start();
     </div>
     <nav>
         <ul class="nav_top">
-            <li><a href="">Home</a></li>
-            <li><a href="product_list.php" >Men</a></li>
-            <li><a href="product_list.php">Women</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('All')">All products</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('Men')">Men</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('Women')">Women</a></li>
             <li><a href="">Contact</a></li>
         </ul>
     </nav>

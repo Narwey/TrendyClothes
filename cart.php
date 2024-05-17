@@ -29,12 +29,10 @@ session_start();
     <nav>
         <ul class="nav_top">
             <li><a href="index.php">Home</a></li>
-            <!-- <li><a href="product_list.php" >Men</a></li>
-            <li><a href="product_list.php">Women</a></li> -->
-            <li><button class="btn-gnd" onclick="filterProducts('All')">All products</button></li>
-            <li><button class="btn-gnd" onclick="filterProducts('Men')">Men</button></li>
-            <li><button class="btn-gnd" onclick="filterProducts('Women')">Women</button></li>
-            <li><li><a href="">Contact</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('All')">All products</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('Men')">Men</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('Women')">Women</a></li>
+            <li><a href="">Contact</a></li>
         </ul>
     </nav>
 

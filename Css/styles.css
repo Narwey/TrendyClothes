@@ -524,3 +524,13 @@ button{
     padding: 8px; /* Add padding for better readability */
     width: 100%;
   }
+
+  .CartList button{
+    background-color: #F6A01E;
+    grid-column:3/4 ;
+    text-align: center;
+    margin: 3%;
+    cursor: pointer;
+
+
+  }

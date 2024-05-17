@@ -28,13 +28,13 @@ session_start();
     </div>
     <nav>
         <ul class="nav_top">
-            <li><a href="">Home</a></li>
-            <li><a href="product_list.php" >Men</a></li>
-            <li><a href="product_list.php">Women</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('All')">All products</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('Men')">Men</a></li>
+            <li><a class="btn-gnd" onclick="filterProducts('Women')">Women</a></li>
             <li><a href="">Contact</a></li>
         </ul>
     </nav>
-
   <div class="icon_head">
     <div class="search">
         <img src="image/search_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
@@ -102,12 +102,7 @@ session_start();
         </div>
     </form>
 </div>
-<div class="gender">
-            <!-- Make the categories clickable buttons -->
-            <button class="btn-gnd" onclick="filterProducts('All')">All products</button>
-            <button class="btn-gnd" onclick="filterProducts('Men')">Men</button>
-            <button class="btn-gnd" onclick="filterProducts('Women')">Women</button>
-        </div>
+
         <div class="search_div">
             <img src="image/search_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
             <input class="search_input" type="text" placeholder="Search" oninput="searchProducts(this.value)">
