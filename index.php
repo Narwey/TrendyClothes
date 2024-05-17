@@ -120,11 +120,11 @@ session_start();
     <div class="images">
         <div class="men_intro">
             <img src="image/AdobeStock_675230311_Preview.jpeg" alt="" class="men_photo">
-            <button class="menbtn">Men</button>
+            <button onclick="filterProducts('Men')" class="menbtn">Men</button>
         </div>
         <div class="women_intro">
             <img src="image/close-up-woman-with-flowers.jpg" alt="" class="women_photo">
-            <button class="womenbtn">Women</button>
+            <button onclick="filterProducts('Women')" class="womenbtn">Women</button>
         </div>
     </div>
     <div class="subscribe">
